@@ -10,6 +10,9 @@ pub struct Script {
     pub enabled: bool,
 }
 
+unsafe impl Send for Script {}
+unsafe impl Sync for Script {}
+
 impl Script {
     pub fn new(source: &str, context: &Context, source_msg: Message) -> Option<Self> {
         let mut engine = Engine::new();
